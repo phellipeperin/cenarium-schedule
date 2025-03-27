@@ -5,12 +5,7 @@ export const metadata: Metadata = {
 };
 
 const SchedulePage = async () => {
-
-  return (
-    <>
-        SCHEDULE PAGE
-    </>
-  );
+  return <>SCHEDULE PAGE</>;
 };
 
 export default SchedulePage;

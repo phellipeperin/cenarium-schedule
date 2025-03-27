@@ -41,6 +41,6 @@ export const createMantineTheme = () => {
       primary: generateMantineColorTuple('#A3464F'),
       white: colorsTuple('#FFFFFF'),
       black: colorsTuple('#000000'),
-    }
+    },
   });
 };

@@ -2,7 +2,7 @@
 
 import { AppShell, AppShellMain, AppShellHeader, Container } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { AppHeader } from './AppHeader';
+import { AppHeader } from '../components/base/AppHeader';
 
 type Props = {
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 
 export const RootTemplate = async ({ children }: Props) => {
   const headerHeight = 60;
-  
+
   return (
     <AppShell header={{ height: headerHeight }}>
       <Notifications position='bottom-center' />

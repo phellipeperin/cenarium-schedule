@@ -1,11 +1,14 @@
-export type Modality = {
-  id: string;
+type FirebaseEntity = {
+  id?: string;
+};
+
+export type Modality = FirebaseEntity & {
   key: string;
   name: string;
   color: string;
 };
 
-export type Schedule = {
+export type ClassSchedule = FirebaseEntity & {
   modalityId: string;
   startingTime: string;
   endingTime: string;
@@ -14,7 +17,7 @@ export type Schedule = {
   ageGroup: string;
   extraInfo: string;
   extraInfo2: string;
-}
+};
 
 export enum WeekDay {
   'MONDAY' = 'MONDAY',

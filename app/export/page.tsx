@@ -5,12 +5,7 @@ export const metadata: Metadata = {
 };
 
 const ExportPage = async () => {
-
-  return (
-    <>
-        EXPORT PAGE
-    </>
-  );
+  return <>EXPORT PAGE</>;
 };
 
 export default ExportPage;

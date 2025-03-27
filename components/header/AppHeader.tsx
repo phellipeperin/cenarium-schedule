@@ -17,7 +17,7 @@ export const AppHeader = async ({ height }: Props) => {
         Modalidades
       </Anchor>
       <Anchor component={Link} href='/export' c='white' fw={700}>
-        Converter
+        Exportar
       </Anchor>
     </Group>
   );

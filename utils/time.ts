@@ -15,7 +15,7 @@ export function generateAllowedTimes(): TimeSchedule[] {
     return DayPeriod.EVENING;
   };
 
-  while (hour < 22 || (hour === 22 && minute === 0)) {
+  while (hour < 22 || (hour === 22 && minute <= 30)) {
     const time = toTimeString(hour, minute);
     const period = getPeriod(hour, minute);
 

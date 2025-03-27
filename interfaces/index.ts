@@ -1,10 +1,27 @@
-// You can include shared interfaces/types in a separate file
-// and then use them in any component by importing them. For
-// example, to import the interface below do:
-//
-// import { User } from 'path/to/interfaces';
-
-export type User = {
-  id: number;
+export type Modality = {
+  id: string;
+  key: string;
   name: string;
+  color: string;
 };
+
+export type Schedule = {
+  modalityId: string;
+  startingTime: string;
+  endingTime: string;
+  daysOfWeek: Array<WeekDay>;
+  teacher: string;
+  ageGroup: string;
+  extraInfo: string;
+  extraInfo2: string;
+}
+
+export enum WeekDay {
+  'MONDAY' = 'MONDAY',
+  'TUESDAY' = 'TUESDAY',
+  'WEDNESDAY' = 'WEDNESDAY',
+  'THURSDAY' = 'THURSDAY',
+  'FRIDAY' = 'FRIDAY',
+  'SATURDAY' = 'SATURDAY',
+  'SUNDAY' = 'SUNDAY',
+}

@@ -7,7 +7,7 @@ import { ClassSchedule } from '../interfaces';
 const collectionName = 'schedule';
 
 export const loadAllClassSchedule = async (): Promise<Array<ClassSchedule>> => {
-  return (await getDocs(collection(db, collectionName))).docs.map((doc) => doc.data() as ClassSchedule);
+  return (await getDocs(collection(db, collectionName))).docs.map((doc) => ({ id: doc.id, ...doc.data() }) as ClassSchedule);
 };
 
 export const addClassSchedule = async (classSchedule: ClassSchedule): Promise<void> => {

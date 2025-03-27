@@ -19,6 +19,11 @@ export type ClassSchedule = FirebaseEntity & {
   extraInfo2: string;
 };
 
+export type TimeSchedule = {
+  time: string;
+  period: DayPeriod;
+}
+
 export enum WeekDay {
   'MONDAY' = 'MONDAY',
   'TUESDAY' = 'TUESDAY',
@@ -26,5 +31,11 @@ export enum WeekDay {
   'THURSDAY' = 'THURSDAY',
   'FRIDAY' = 'FRIDAY',
   'SATURDAY' = 'SATURDAY',
-  'SUNDAY' = 'SUNDAY',
+  // 'SUNDAY' = 'SUNDAY',
+}
+
+export enum DayPeriod {
+  'MORNING' = 'MORNING',
+  'AFTERNOON' = 'AFTERNOON',
+  'EVENING' = 'EVENING',
 }

@@ -7,11 +7,12 @@ import { IconInfoCircle } from '@tabler/icons-react';
 
 interface Props {
   item: Modality;
+  list: Array<Modality>;
   cancel: () => void;
   confirm: (newItem: Modality) => void;
 }
 
-export const ModalityForm = ({ item, cancel, confirm }: Props) => {
+export const ModalityForm = ({ item, list, cancel, confirm }: Props) => {
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
@@ -20,10 +21,37 @@ export const ModalityForm = ({ item, cancel, confirm }: Props) => {
       key: item.key,
       color: item.color,
     },
+    validate: {
+      name: (value) => (!value ? 'Mandatório' : null),
+      key: (value) => {
+        if (!value) {
+          return 'Mandatório';
+        }
+        if (!item.id && list.findIndex((modality) => modality.key === value) !== -1) {
+          return 'Valor precisa ser único';
+        }
+        return null;
+      },
+      color: (value) => {
+        if (!value) {
+          return 'Mandatório';
+        }
+        if (!value.startsWith('#') || value.length !== 7) {
+          return 'Formato inválido'
+        }
+        return null;
+      },
+    },
   });
 
+  const validateAndConfirm = (): void => {
+    if (!form.validate().hasErrors) {
+      confirm(form.getValues());
+    }
+  };
+
   return (
-    <Flex direction='column' gap={16}>
+    <Flex direction='column' gap={20}>
       <TextInput size="sm" radius="md" label='Nome' key={form.key('name')} {...form.getInputProps('name')} />
       
       <TextInput size="sm" radius="md" label='Chave' key={form.key('key')} {...form.getInputProps('key')} rightSection={
@@ -49,7 +77,7 @@ export const ModalityForm = ({ item, cancel, confirm }: Props) => {
 
       <Flex w='100%' justify='end' gap={8}>
         <Button onClick={cancel} variant="subtle">Cancelar</Button>
-        <Button onClick={() => confirm(form.getValues())}>Salvar</Button>
+        <Button onClick={validateAndConfirm}>Salvar</Button>
       </Flex>
     </Flex>
   );

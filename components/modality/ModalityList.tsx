@@ -67,7 +67,7 @@ export const ModalityList = () => {
     <>
       <Notifications />
       <PageHeader title='Modalidades' buttonLabel='Adicionar' buttonAction={addNew} />
-      <Table stickyHeader stickyHeaderOffset={60}>
+      <Table highlightOnHover stickyHeader stickyHeaderOffset={60}>
         <Table.Thead>
           <Table.Tr>
             <Table.Th>Nome</Table.Th>
@@ -77,11 +77,11 @@ export const ModalityList = () => {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {list.map((item) => <ModalityListItem key={item.key} item={item} edit={() => edit(item)} remove={() => remove(item)} />)}
+          {list.map((item) => <ModalityListItem key={item.id} item={item} edit={() => edit(item)} remove={() => remove(item)} />)}
         </Table.Tbody>
 
         <Modal opened={openedEdit} onClose={closeEdit} title={item?.name || 'Nova Modalidade'} centered>
-          <ModalityForm item={item} cancel={closeEdit} confirm={confirmSave} />
+          <ModalityForm item={item} list={list} cancel={closeEdit} confirm={confirmSave} />
         </Modal>
 
         <Modal opened={openedDelete} onClose={closeDelete} title='Remover' centered>

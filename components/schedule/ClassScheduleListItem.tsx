@@ -1,6 +1,6 @@
 'use client';
 
-import { ActionIcon, Box, Flex, Table, Text } from '@mantine/core';
+import { ActionIcon, Flex, Table, Text } from '@mantine/core';
 import { ClassSchedule, Modality } from '../../interfaces';
 import { IconPencil, IconTrash } from '@tabler/icons-react';
 import { translateWeekDay } from '../../utils/translator';

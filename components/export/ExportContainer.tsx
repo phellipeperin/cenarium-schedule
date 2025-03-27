@@ -45,7 +45,7 @@ export const ExportContainer = () => {
     try {
       await navigator.clipboard.writeText(text);
       notifications.show({ message: 'Copiado, agora é só colar no site!' });
-    } catch (err) {
+    } catch {
       notifications.show({ message: 'Não deu para copiar automaticamente, por favor faça-o manualmente.' });
     }
   };

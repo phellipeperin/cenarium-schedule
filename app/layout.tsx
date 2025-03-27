@@ -3,6 +3,7 @@ import { createMantineTheme, latoFont } from '../config/mantine.config';
 import { RootTemplate } from '../templates/RootTemplate';
 
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 import '../styles/reset.css';
 
 interface Props {

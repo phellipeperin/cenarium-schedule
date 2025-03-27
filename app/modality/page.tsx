@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ServerActionsProvider from '../../providers/ServerActionsProvider';
-import ModalityList from '../../components/modality/ModalityList';
+import { ModalityList } from '../../components/modality/ModalityList';
 import { addModality, editModality, loadAllModalities, removeModality } from '../../actions/modality.actions';
 
 export const metadata: Metadata = {
